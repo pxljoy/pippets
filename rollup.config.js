@@ -3,15 +3,10 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import json from 'rollup-plugin-json';
-// import builtins from 'rollup-plugin-node-builtins';
-// import globals from 'rollup-plugin-node-globals';
-// import builtins from 'builtin-modules'
 
 import { terser } from 'rollup-plugin-terser';
 
 import autoPreprocess from 'svelte-preprocess';
-// import sass from 'svelte-preprocess-sass';
-// import { sass } from "svelte-preprocess-sass";
 
 
 
@@ -26,7 +21,6 @@ export default {
 		name: 'app',
 		file: 'public/bundle.js',
 		target: 'electron-renderer',
-		// externals: builtins,
 	},
 	plugins: [
 		svelte({

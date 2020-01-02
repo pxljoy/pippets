@@ -194,7 +194,6 @@ const createWindow = () => {
   });
 
   ipcMain.on('drag-file', (_, file) => {
-    console.log('dragging', file);
     window.webContents.startDrag({
       file,
       icon: path.join(__dirname, './src/assets/img.png')
