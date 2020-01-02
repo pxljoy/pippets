@@ -1,0 +1,28 @@
+$theme: (
+  primary: #8ab4f9,
+  text: #ebebeb,
+  grey-darken-2: #141618,
+  grey-darken-1: #1f2325,
+  grey: #2f3437,
+  secondary: #373c3f,
+  grey-2: #474c50,
+  grey-3: #797f85,
+  grey-4: #a5aaaf,
+  grey-5: #cacdd1,
+);
+
+@each $name, $color in $theme {
+  .#{$name} {
+    background: $color;
+    &--hover:hover {
+      background: $color;
+    }
+  }
+
+  .#{$name}--text {
+    color: $color;
+    &--hover:hover {
+      color: $color;
+    }
+  }
+}

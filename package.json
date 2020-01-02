@@ -1,0 +1,35 @@
+{
+  "name": "pippets",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "builtin-modules": "^3.1.0",
+    "node-sass": "^4.13.0",
+    "nodemon": "^1.19.4",
+    "rollup": "^1.27.14",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-svelte": "^5.1.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "svelte": "^3.16.7",
+    "svelte-preprocess": "^2.16.0",
+    "svelte-preprocess-sass": "^0.2.0"
+  },
+  "dependencies": {
+    "electron": "^7.1.7",
+    "electron-debug": "^3.0.1",
+    "electron-packager": "^14.1.1",
+    "electron-store": "^5.1.0",
+    "sqlite3": "^4.1.1"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "start": "nodemon --watch src --exec \"npm run build && npm run electron\" -e svelte,scss,js",
+    "electron": "electron ./main.js",
+    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
+  }
+}

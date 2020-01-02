@@ -1,0 +1,83 @@
+@import './colors';
+
+$sizes: (
+  "0": 0px,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "4": 16px,
+  "5": 24px,
+  "6": 32px,
+);
+
+$dimensions: (
+  "a": ("left", "right", "top", "bottom"),
+  "x": ("left", "right"),
+  "y": ("top", "bottom"),
+  "l": ("left"),
+  "r": ("right"),
+  "t": ("top"),
+  "b": ("bottom"),
+);
+
+$border-sizes: (
+  "0": 0px,
+  "1": 2px,
+  "2": 4px,
+  "3": 8px,
+  "4": 12px,
+  "5": 16px,
+  "max": 999px,
+);
+
+$border-dimensions: (
+  "a": ("top-left", "top-right", "bottom-left", "bottom-right"),
+  "t": ("top-left", "top-right"),
+  "b": ("bottom-left", "bottom-right"),
+  "tl": ("top-left"),
+  "tr": ("top-right"),
+  "bl": ("bottom-left"),
+  "br": ("bottom-right"),
+  "r": ("top-right", "bottom-right"),
+  "l": ("top-left", "bottom-left"),
+);
+
+@each $index, $size in $sizes {
+  @each $dimension, $props in $dimensions {
+    .p#{$dimension}-#{$index} {
+      @each $prop in $props {
+        padding-#{$prop}: $size !important;
+      }
+    }
+    .m#{$dimension}-#{$index} {
+      @each $prop in $props {
+        margin-#{$prop}: $size !important;
+      }
+    }
+  }
+}
+
+@each $index, $size in $border-sizes {
+  @each $dimension, $props in $dimensions {
+    .b#{$dimension}-#{$index} {
+      @each $name, $color in $theme {
+        &--#{$name} {
+          border: $size solid $color;
+          &--hover:hover {
+            border: $size solid $color;
+          }
+          &--focus:focus {
+            border: $size solid $color;
+          }
+        }
+      }
+    }
+  }
+  @each $dimension, $props in $border-dimensions {
+    .br#{$dimension}-#{$index} {
+      @each $prop in $props {
+        border-#{$prop}-radius: $size !important;
+      }
+    }
+  }
+}
