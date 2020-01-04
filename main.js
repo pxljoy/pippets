@@ -114,7 +114,7 @@ const addFiles = async (files) => {
 const createTray = () => {
   tray = new Tray(path.join(__dirname, './src/assets/sunTemplate.png'));
   tray.setToolTip('Drag files to hold');
-  tray.setTitle(`${store.get('files').length || ''}`);
+  tray.setTitle(`${(store.get('files') || []).length || ''}`);
   tray.on('drop-files', async (_, files) => {
     await addFiles(files);
     showWindow();

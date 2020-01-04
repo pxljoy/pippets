@@ -4,7 +4,6 @@
 
 	bus.on('receive-store', (event, message) => {
 		store = message;
-		console.log(store);
 	});
 
 	const open = (e, file) => {
